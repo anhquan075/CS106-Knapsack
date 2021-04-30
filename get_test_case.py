@@ -8,6 +8,10 @@ import json
 from icecream import ic
 import time
 import sys
+import schedule
+from threading import Thread
+import time
+import signal
 
 
 def get_folder(dir_folder):
@@ -68,9 +72,23 @@ def solver_snapback(values, weights, capacities):
     # print('Packed_weights:', packed_weights)
     return total_weight, packed_items, packed_weights
 
+
+def exit_data():
+    print(f'\nExiting')
+    # sys.exit()
+    os.kill(os.getpid(), signal.SIGTERM)
+
+def exit_data_thread(time_to_exit=300):
+    schedule.every(time_to_exit).seconds.do(exit_data)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
 if __name__ == "__main__":
-    print('Get all data')
+    print('Get data')
     all_data = get_data('kplib')
+
+    Thread(target=exit_data_thread).start()
 
     print('Processing')
     for folder_key in all_data:

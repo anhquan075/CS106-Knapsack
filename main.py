@@ -11,6 +11,14 @@ import genetic_knapsack
 from or_algorithm_knapsack import processing_data_or, solver_snapback
 from genetic_knapsack import processing_data_genetic_algorithm
 
+
+def create_folder(dir_name):
+    if os.path.exists(dir_name):
+        print(f"{dir_name} is exists")
+    else:
+        os.mkdir(dir_name)
+        print(f'{dir_name} is created')
+
 def exit_data():
     print(f'\nExiting process')
     # sys.exit()
@@ -23,12 +31,16 @@ def exit_data_thread(time_to_exit=300):
         time.sleep(1)
 
 if __name__ == "__main__":
+    create_folder('TestResults')
+    create_folder('TestResults/OR/')
+    create_folder('TestResults/Genetic/')
+
     print('Get data')
     all_data = get_data('kplib')
 
     Thread(target=exit_data_thread).start()
 
-    print('Processing')
+    print('Processing OR Algorithms')
     for folder_key in all_data:
         f = open(f'TestResults/OR/{folder_key}.txt', 'w')
         f.write('Folder: {}\n\n'.format(folder_key))
@@ -42,5 +54,9 @@ if __name__ == "__main__":
                 f.write('Packed items: {}\n'.format(packed_items))
                 f.write('Packed_weights: {}\n\n'.format(packed_weights))
 
-                items , capacities = processing_data_genetic_algorithm(idx)
-                genetic_knapsack.run(items, capacities)
+        f.close()
+
+    print('Processing Genetic Algorithms')
+    
+                # items , capacities = processing_data_genetic_algorithm(idx)
+                # genetic_knapsack.run(items, capacities)

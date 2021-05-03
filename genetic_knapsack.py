@@ -39,7 +39,7 @@ def initData(items, capacities):
 def run(items, capacities):
     # set the random seed:
     knapsack_init = initData(items, capacities)
-    RANDOM_SEED = 42
+    RANDOM_SEED = 19522081
     random.seed(RANDOM_SEED)
 
     toolbox = base.Toolbox()
@@ -111,4 +111,4 @@ def run(items, capacities):
     plt.xlabel('Generation')
     plt.ylabel('Max / Average Fitness')
     plt.title('Max and Average fitness over Generations')
-    plt.show()
+    plt.savefig(f'{a}.png')

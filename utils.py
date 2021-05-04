@@ -1,7 +1,13 @@
 import os
 from tqdm import tqdm
-import numpy as np
 
+
+def create_folder(dir_name):
+    if os.path.exists(dir_name):
+        print(f"{dir_name} is exists")
+    else:
+        os.mkdir(dir_name)
+        print(f'{dir_name} is created')
 
 def get_folder(dir_folder):
     folder = [list(idx) for idx in os.walk(dir_folder)]

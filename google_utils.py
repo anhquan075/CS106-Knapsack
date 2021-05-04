@@ -1,12 +1,10 @@
 import os
 import platform
-import subprocess
 import time
 from pathlib import Path
 
 
 def gdrive_download(id='1iO49jj6S6jwifda4CGD5UaeF-3XzlBap', file='kplib.zip'):
-    # Downloads a file from Google Drive. from yolov5.utils.google_utils import *; gdrive_download()
     t = time.time()
     file = Path(file)
     cookie = Path('cookie')  # gdrive cookie

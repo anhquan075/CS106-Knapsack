@@ -1,4 +1,4 @@
 python - <<EOF
-from google_utils import attempt_download
+from google_utils import gdrive_download
 gdrive_download()
 EOF

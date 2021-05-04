@@ -13,11 +13,11 @@ import knapsack
 from utils import processing_str_lst
 
 # Genetic Algorithm constants:
-POPULATION_SIZE = 50
+POPULATION_SIZE = 65
 P_CROSSOVER = 0.9  # probability for crossover
 P_MUTATION = 0.1   # probability for mutating an individual
 MAX_GENERATIONS = 50
-HALL_OF_FAME_SIZE = 1
+HALL_OF_FAME_SIZE = 2
 
 
 def processing_data_genetic_algorithm(process_lst):
@@ -99,16 +99,19 @@ def run(items, capacities):
     print("-- Best Ever Individual = ", best)
     print("-- Best Ever Fitness = ", best.fitness.values[0])
 
-    knapsack_init.printItems(best)
+    totalWeight, totalValue = knapsack_init.printItems(best)
 
     # extract statistics:
-    maxFitnessValues, meanFitnessValues = logbook.select("max", "avg")
+    # maxFitnessValues, meanFitnessValues = logbook.select("max", "avg")
 
     # plot statistics:
-    sns.set_style("whitegrid")
-    plt.plot(maxFitnessValues, color='red')
-    plt.plot(meanFitnessValues, color='green')
-    plt.xlabel('Generation')
-    plt.ylabel('Max / Average Fitness')
-    plt.title('Max and Average fitness over Generations')
-    plt.savefig(f'{a}.png')
+    # sns.set_style("whitegrid")
+    # plt.plot(maxFitnessValues, color='red')
+    # plt.plot(meanFitnessValues, color='green')
+    # plt.xlabel('Generation')
+    # plt.ylabel('Max / Average Fitness')
+    # plt.title('Max and Average fitness over Generations')
+    # plt.savefig(f'TestResults/Genetic/{figure_name}.png')
+    # plt.close()
+
+    return best.fitness.values[0], totalWeight, totalValue

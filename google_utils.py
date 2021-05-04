@@ -9,8 +9,8 @@ def gdrive_download(id='1iO49jj6S6jwifda4CGD5UaeF-3XzlBap', file='kplib.zip'):
     file = Path(file)
     cookie = Path('cookie')  # gdrive cookie
     print(f'Downloading https://drive.google.com/uc?export=download&id={id} as {file}... ', end='')
-    file.unlink(missing_ok=True)  # remove existing file
-    cookie.unlink(missing_ok=True)  # remove existing cookie
+    file.unlink()  # remove existing file
+    cookie.unlink()  # remove existing cookie
 
     # Attempt file download
     out = "NUL" if platform.system() == "Windows" else "/dev/null"

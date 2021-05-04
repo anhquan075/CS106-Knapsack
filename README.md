@@ -23,3 +23,5 @@ Test case results are saved in ```TestResults``` folder. The name of each subdir
 python3 main.py -o 1 : Run OR Tools 
                    2 : Run Genetic Algorithm
 ```
+
+Feel free to clone my source code: https://github.com/anhquan075/knapsack

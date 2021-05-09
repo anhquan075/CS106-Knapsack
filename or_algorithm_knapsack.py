@@ -38,4 +38,4 @@ def solver_snapback(values, weights, capacities):
     # print('Total weight:', total_weight)
     # print('Packed items:', packed_items)
     # print('Packed_weights:', packed_weights)
-    return total_weight, packed_items, packed_weights
+    return total_weight, computed_value, packed_weights

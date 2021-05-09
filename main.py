@@ -12,7 +12,7 @@ import argparse
 
 
 # You can change time stop in here
-TIME_STOP = 600
+TIME_STOP = 300
 BLACK_LIST_TEST_CASE = ['02000', '05000', '10000']
 
 def run_OR(TIME_STOP, data):
@@ -32,10 +32,10 @@ def run_OR(TIME_STOP, data):
                 f.write(f'{counting_test_case} times:\n')
                 
                 values, weights, capacities = processing_data_or(idx)
-                total_weight, packed_items, packed_weights = solver_snapback(values, weights, capacities)
+                total_weight, computed_value, packed_weights = solver_snapback(values, weights, capacities)
                 
                 f.write('Total weight: {}\n'.format(total_weight))
-                f.write('Packed items: {}\n'.format(packed_items))
+                f.write('Total value: {}\n'.format(computed_value))
                 f.write('Packed_weights: {}\n\n'.format(packed_weights))
 
                 counting_test_case = counting_test_case + 1
